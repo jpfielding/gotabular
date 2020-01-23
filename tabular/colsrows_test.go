@@ -4,7 +4,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/jpfielding/gotest/testutils"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestColumns(t *testing.T) {
@@ -20,9 +20,9 @@ func TestColumns(t *testing.T) {
 	test := func(row int, id, status, price string) func(*testing.T) {
 		return func(tt *testing.T) {
 			m := rows[row].Map(cols, index)
-			testutils.Equals(tt, id, m["id"])
-			testutils.Equals(tt, status, m["status"])
-			testutils.Equals(tt, price, m["price"])
+			assert.Equal(tt, id, m["id"])
+			assert.Equal(tt, status, m["status"])
+			assert.Equal(tt, price, m["price"])
 		}
 	}
 	t.Run("cols", test(0, "one", "active", "234234"))
@@ -43,9 +43,9 @@ func TestRowSort(t *testing.T) {
 	test := func(row int, id, status, price string) func(*testing.T) {
 		return func(tt *testing.T) {
 			m := rows[row].Map(cols, index)
-			testutils.Equals(tt, id, m["id"])
-			testutils.Equals(tt, status, m["status"])
-			testutils.Equals(tt, price, m["price"])
+			assert.Equal(tt, id, m["id"])
+			assert.Equal(tt, status, m["status"])
+			assert.Equal(tt, price, m["price"])
 		}
 	}
 
