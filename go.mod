@@ -1,4 +1,4 @@
-module github.com/jpfielding/gofilters
+module github.com/jpfielding/gotabular
 
 go 1.10
 
